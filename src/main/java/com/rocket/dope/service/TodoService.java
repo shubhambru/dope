@@ -33,7 +33,7 @@ public class TodoService {
             repository.save(todoDTO);
             return new ResponseEntity<TodoDTO>(todoDTO,HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.OK);
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -46,7 +46,7 @@ public class TodoService {
             return new ResponseEntity<String>("No todo exists for this id",HttpStatus.BAD_REQUEST);
             
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -65,7 +65,7 @@ public class TodoService {
             return new ResponseEntity<String>("No todo exists for this id",HttpStatus.OK);
             
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(),HttpStatus.OK);
+            return new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
